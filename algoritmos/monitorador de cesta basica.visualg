@@ -1,0 +1,38 @@
+algoritmo "MONITORADOR DE CESTA BÁSICA"
+
+var
+  produto: caractere
+  valor_atual: real
+  valor_anterior: real
+
+procedimento imprime_resultado(mensagem: caractere)
+  inicio
+    limpatela
+    escreval(mensagem)
+fimprocedimento
+
+
+
+inicio
+
+  escreval("----MONITORADOR DE CESTA BÁSICA-----")
+  escreval("Produto: ")
+  leia(produto)
+  escreval("Preço atual do produto: ")
+  leia(valor_atual)
+  escreval("Preço mês anterior: ")
+  leia(valor_anterior)
+  
+  se (valor_atual > valor_anterior) entao
+    imprime_resultado("O preço aumentou")
+  senao
+    se (valor_atual < valor_anterior) entao
+      imprime_resultado("O preço diminuiu")
+    senao
+      imprime_resultado("O preço manteve-se o mesmo")
+    fimse
+  fimse
+
+
+
+fimalgoritmo

@@ -1,0 +1,60 @@
+algoritmo "Primeiro Programa"
+
+var
+  produto: vetor[0..2] de caractere
+  preco_atual: vetor[0..2] de real
+  preco_anterior: vetor[0..2] de real
+  i: inteiro
+  variacao: vetor[0..2] de real
+  situacao: vetor[0..2] de caractere
+
+procedimento cadastrar_produto
+  inicio
+      para i de 0 ate 2 faca
+        escreval("Digite o nome do produto: ")
+        leia(produto[i])
+        escreval("Digite o preço atual: ")
+        leia(preco_atual[i])
+        escreval("Digite o preço anterior: ")
+        leia(preco_anterior[i])
+        limpatela
+      fimpara
+fimprocedimento
+
+procedimento calcula_variacao
+  inicio
+    para i de 0 ate 2 faca
+      variacao[i] <- ((preco_atual[i] - preco_anterior[i]) / preco_anterior[i]) * 100 
+    fimpara
+fimprocedimento
+
+procedimento verifica_situacao
+  inicio
+    para i de 0 ate 2 faca
+      se variacao[i] > 0 entao
+        situacao[i] <- "AUMENTO"
+      senao
+        se variacao[i] < 0 entao
+          situacao[i] <- "QUEDA"
+        senao
+          situacao[i] <- "ESTÁVEL"
+        fimse
+      fimse
+    fimpara
+
+fimprocedimento
+
+inicio
+
+  cadastrar_produto
+  calcula_variacao
+  verifica_situacao
+
+  escreval("PRODUTO | PREÇO ATUAL | PREÇO ANTERIOR | VARIAÇÃO(%) | SITUAÇÃO ")
+  para i de 0 ate 2 faca
+    escreval(produto[i], " | R$ ", preco_atual[i]:3:2, " | R$ ", preco_anterior[i]:3:2, " | ", variacao[i]:2:2, "% | ", situacao[i])
+  fimpara
+
+  //escreval("Variação produto 1: ", variacao)
+
+fimalgoritmo
