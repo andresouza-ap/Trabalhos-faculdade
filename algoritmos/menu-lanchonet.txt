@@ -1,0 +1,66 @@
+#include <stdio.h>  
+
+int main()
+{
+
+int opcao;
+float valor_total = 0;
+
+
+    do { 
+        printf("LANCHONETE DON PODRÃO\n");
+        printf("    Seja bem vindo!\n");
+        printf("======== MENU =========\n");
+
+    /* área de opções */
+        printf("1 - Burguer simples         R$ 13,99\n");
+        printf("2 - X-tudo                  R$ 18,99\n");
+        printf("3 - X-Frango                R$ 13,99\n");
+        printf("4 - X-Salada                R$ 14,99\n");
+        printf("5 - Batata frita            R$ 13,99\n");
+        printf("0 - SAIR ou Finalizar pedido\n");
+        printf("\nDigite o número da opção escolhida: ");
+        scanf("%d", &opcao);
+
+
+    /*processamento da opção escolhida*/
+
+        switch(opcao) {
+            case 1:
+                printf("Você escolheu Burguer simples.\n");
+                valor_total = valor_total + 13.99;
+
+                break;
+            case 2:
+                printf("Você escolheu X-tudo.\n");
+                valor_total = valor_total + 18.99;
+                break;
+            case 3:
+                printf("Você escolheu X-Frango.\n");
+                valor_total = valor_total + 13.99;
+                break;
+            case 4:
+                printf("Você escolheu X-Salada.\n");
+                valor_total = valor_total + 14.99;
+                break;
+            case 5:
+                printf("Você escolheu Batata frita.\n");
+                valor_total = valor_total + 13.99;
+                break;
+            case 0:
+                if (valor_total == 0) {
+                    printf("Saindo...\n");
+                } else {
+                    printf("Finalizando o seu pedido..\n");
+                }
+                break;
+            default:
+                printf("Opção inválida!\nDigite um número de 0 a 5.\n");
+        }
+    } while (opcao != 0);
+
+    printf("Total do pedido: R$ %.2f\n", valor_total);
+    printf("OBRIGADO PELA FREFERÊNCIA!");
+
+    return 0;
+}
