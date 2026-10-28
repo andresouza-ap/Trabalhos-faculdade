@@ -1,0 +1,47 @@
+#include <stdio.h>
+#define DIAS 7
+int main () {
+
+int i, dia_pico;
+int total = 0;
+int qtd_carros[DIAS];
+int maior = 0;
+
+/*Nome dos dias da semana*/
+    const char *dias[DIAS] = {
+        "Domingo",
+        "Segunda-feira",
+        "Terça-feira",
+        "Quarta-feira",
+        "Quinta-feira",
+        "Sexta-feira",
+        "Sábado"
+    };
+
+
+/*=====Receber os dados vindos do usuário=====*/
+    for (i = 0; i < DIAS; i++) {
+        printf("Quantidade de carros na %s: \n", dias[i]);
+        scanf("%d", &qtd_carros[i]);
+        if (qtd_carros[i] > maior){
+            maior = qtd_carros[i];
+            dia_pico = i;
+        }
+        total+=qtd_carros[i];
+    }
+
+// Relatório ====================================
+
+    printf("==========RELATÓRIO SEMANAL=============\n");
+    printf("DIA     |       QTD CARROS\n");
+    for(i = 0; i < DIAS; i++){
+        if(qtd_carros[i] == maior){
+        printf("%s:   %d \033[1m========== DIA DE PICO \033[0m\n", dias[i], qtd_carros[i]);
+        } else {
+        printf("%s:   %d\n", dias[i], qtd_carros[i]);
+        }
+    }
+    printf("===================================\n");
+    printf("Dia de pico: %s \n", dias[dia_pico]);
+    printf("Total de carros: %d", total);
+}

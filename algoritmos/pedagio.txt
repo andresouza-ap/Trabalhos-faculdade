@@ -1,9 +1,9 @@
 #include <stdio.h>
 #define DIAS 7
-
 int main () {
 
-int i, total, dia_pico;
+int i, dia_pico;
+int total = 0;
 int qtd_carros[DIAS];
 int maior = 0;
 
@@ -19,7 +19,7 @@ int maior = 0;
     };
 
 
-/*=====Receber os dados vindos do usuário=====*/  
+/*=====Receber os dados vindos do usuário=====*/
     for (i = 0; i < DIAS; i++) {
         printf("Quantidade de carros na %s: \n", dias[i]);
         scanf("%d", &qtd_carros[i]);
@@ -35,9 +35,13 @@ int maior = 0;
     printf("==========RELATÓRIO SEMANAL=============\n");
     printf("DIA     |       QTD CARROS\n");
     for(i = 0; i < DIAS; i++){
+        if(qtd_carros[i] == maior){
+        printf("%s:   %d \033[1m========== DIA DE PICO \033[1m\n", dias[i], qtd_carros[i]);
+        } else {
         printf("%s:   %d\n", dias[i], qtd_carros[i]);
+        }
     }
     printf("===================================\n");
-    printf("Dia de pico: %s ", dias[dia_pico]);
+    printf("Dia de pico: %s \n", dias[dia_pico]);
     printf("Total de carros: %d", total);
 }
